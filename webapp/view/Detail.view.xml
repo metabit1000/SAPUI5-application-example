@@ -1,9 +1,12 @@
 <mvc:View
 	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc" controllerName="pruebas.pruebas.controller.Detail">
 	<Page
-		title="Invoice detail">
+		title="Invoice detail"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
 		<ObjectHeader
-			title="Invoice"/>
+			intro="{invoice>ShipperName}"
+			title="{invoice>ProductName}"/>
 	</Page>
 </mvc:View>
