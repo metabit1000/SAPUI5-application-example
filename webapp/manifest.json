@@ -109,24 +109,28 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"async": true,
 				"viewPath": "pruebas.pruebas.view",
-				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"controlAggregation": "pages",
+				"async": true
 			},
 			"routes": [{
-				"name": "RouteView",
-				"pattern": "RouteView",
-				"target": ["TargetView"]
+				"pattern": "",
+				"name": "view",
+				"target": "view"
+			}, {
+				"pattern": "detail",
+				"name": "detail",
+				"target": "detail"
 			}],
 			"targets": {
-				"TargetView": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "View",
+				"view": {
+					"viewId": "view",
 					"viewName": "View"
+				},
+				"detail": {
+					"viewId": "detail",
+					"viewName": "Detail"
 				}
 			}
 		}
