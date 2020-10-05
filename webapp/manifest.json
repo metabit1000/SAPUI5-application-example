@@ -92,14 +92,18 @@
 				},
 				"dataSource": "Northwind.svc",
 				"preload": true
+			},
+			"invoice": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false,
+				"uri": "./localService/Invoices.json"
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -111,15 +115,11 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "RouteView",
-					"pattern": "RouteView",
-					"target": [
-						"TargetView"
-					]
-				}
-			],
+			"routes": [{
+				"name": "RouteView",
+				"pattern": "RouteView",
+				"target": ["TargetView"]
+			}],
 			"targets": {
 				"TargetView": {
 					"viewType": "XML",

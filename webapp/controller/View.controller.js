@@ -3,11 +3,13 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/Fragment"
-], function (Controller, Filter, FilterOperator, JSONModel, Fragment ) {
+	"sap/ui/core/Fragment",
+	"../model/formatter"
+], function (Controller, Filter, FilterOperator, JSONModel, Fragment, formatter ) {
 	"use strict";
 
 	return Controller.extend("pruebas.pruebas.controller.View", {
+		formatter: formatter,
 		onInit: function () {
 			
 			// set data model on view 
@@ -57,6 +59,19 @@ sap.ui.define([
 		
 		onCloseDialog : function () {
 			this.byId("Dialog").close();
+		}, 
+		
+		onFilterInvoices : function(oEvent) { //filtro de invoces con MAS DE UN DATO para filtrar (no a la vez)
+			// build filter array
+			var aFilter = [];
+			
+			aFilter.push(new Filter([new Filter("ProductName", sap.ui.model.FilterOperator.Contains, oEvent.getParameter("query")), 
+				new Filter("Quantity", sap.ui.model.FilterOperator.EQ, oEvent.getParameter("query"))],false));
+
+			// filter binding
+			var oList = this.byId("invoiceList");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilter);
 		}
 	});
 });
