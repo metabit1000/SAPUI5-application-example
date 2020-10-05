@@ -4,15 +4,18 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Panel>
+						<Panel class="sapUiResponsiveMargin" width="auto">
 							<headerToolbar>
 								<Toolbar>
 									<Title text="{i18n>productListTitle}"/>
 									<ToolbarSpacer/>
 									<SearchField width="50%" search=".onFilterProducts" 
 										placeholder="{i18n>searchProducts}"/>
+									<Input value="{/recipient/name}" valueLiveUpdate="true" width="10%"/>
+									<Button text="{i18n>buttonText}" press=".onShow" class="sapUiMediumMargin" icon="sap-icon://cart"/>
 								</Toolbar>
 							</headerToolbar>
+							
 							<Table id="productList" class="sapUiResponsiveMargin" width="auto"
 							items="{ path: 'northwindpruebas>/Products' }">
 							<columns>
