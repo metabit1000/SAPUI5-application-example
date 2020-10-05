@@ -1,0 +1,53 @@
+<mvc:View controllerName="pruebas.pruebas.controller.View" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Panel>
+							<headerToolbar>
+								<Toolbar>
+									<Title text="{i18n>productListTitle}"/>
+									<ToolbarSpacer/>
+									<SearchField width="50%" search=".onFilterProducts" 
+										placeholder="{i18n>searchProducts}"/>
+								</Toolbar>
+							</headerToolbar>
+							<Table id="productList" class="sapUiResponsiveMargin" width="auto"
+							items="{ path: 'northwindpruebas>/Products' }">
+							<columns>
+								<Column>
+									<Text text="{i18n>columnProductID}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>columnProductName}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>columnCategoryID}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>columnSupplierID}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>columnQuantityPerUnit}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectNumber number="{northwindpruebas>ProductID}"/>
+										<Text text="{northwindpruebas>ProductName}"/>
+										<ObjectNumber number="{northwindpruebas>CategoryID}"/>
+										<ObjectNumber number="{northwindpruebas>SupplierID}"/>
+										<Text text="{northwindpruebas>QuantityPerUnit}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							</Table>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
