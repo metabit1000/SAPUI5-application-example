@@ -21,6 +21,7 @@ sap.ui.define([
 			var oList = this.byId("productList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(prodFilter);
+			//prueba
 		}
 	});
 });
